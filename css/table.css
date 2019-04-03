@@ -1,0 +1,31 @@
+
+.table > thead > tr > th,
+.table > thead > tr > td {
+font-size: .9em;
+font-weight: 400;
+border-bottom: 0;
+letter-spacing: 1px;
+vertical-align: top;
+padding: 8px;
+background: #6B83E5;
+text-transform: uppercase;
+color: #ffffff;
+}
+.table {
+width: 98%;
+box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+margin-top: 18px;
+margin-left: auto;
+margin-right: auto;
+}
+.btnaddemp{
+
+margin-top: 20px;
+margin-left: 15px;
+
+}
+.btnaddemp:hover{
+border:1px solid #000;
+background:#fff;
+color:#000;
+}
