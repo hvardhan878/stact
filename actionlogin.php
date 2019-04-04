@@ -41,19 +41,23 @@ $sql = "SELECT * FROM Users WHERE Email = ?";
                        $_SESSION["LastName"] = $LastName;
                        $_SESSION["Password"] = $checkPassword;
                        $_SESSION["CompanyRegister"] = $CompanyRegister;
-              
+                       $_SESSION["passerr"] = "";
+
 
 
                        // Redirect user to welcome page
                        header("location: companyregistration.php");
                    } else{
                        // Display an error message if password is not valid
-                       echo "The password you entered was not valid.";
+                        $_SESSION["passerr"] = " *Wrong Username or Password";
+                         header("location: login.php");
                    }
                }
            } else{
                // Display an error message if username doesn't exist
-               echo "No account found with that username.";
+               $_SESSION["passerr"] = " *Wrong Username or Password";
+                header("location: login.php");
+            
            }
        } else{
            echo $stmt->error;

@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="main-navigation">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="dashboard.php">Dashboard</a>
+        <a class="nav-link" href="dashboard.php">Notifications</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="employee.php">Your Employees</a>

@@ -47,7 +47,8 @@ $createcomp =  "CREATE TABLE Companies(
     Phone VARCHAR(20) NOT NULL,
     RegistrationNumber VARCHAR(80) NOT NULL,
     Industries LONGTEXT NOT NULL,
-    NumberEmployees VARCHAR(10) NOT NULL
+    NumberEmployees VARCHAR(10) NOT NULL,
+    Stars INT UNISIGNED
   )";
 $link->query($createcomp);
 

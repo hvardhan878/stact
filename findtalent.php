@@ -44,7 +44,7 @@ include("sqlconnect.php");
         $getrequests = mysqli_query($link,"SELECT id,JobTitle,Industries,Skills,Country,Cities,Status FROM Request WHERE companyid = '$companyid'");
         while($req = mysqli_fetch_array($getrequests)){
          $requestedid = $req["id"];
-         $link = "matchedtalent.php?requestid=".$requestedid;
+         $link = "matchedcompanies.php?requestid=".$requestedid;
          echo '<tr>';
          echo '<td>';
          echo $i;

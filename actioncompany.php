@@ -11,6 +11,7 @@ Industries LONGTEXT NOT NULL,
 NumberEmployees VARCHAR(10) NOT NULL
 */
 session_start();
+$Stars = 0;
 $MajorCities = "";
 $Industries = "";
 $userid = $_SESSION["userid"];
@@ -42,13 +43,14 @@ if (isset($_POST['industries'])) {
 }
 $NumberEmployees = isset($_POST["employees"]) ? $_POST["employees"] : '';
 //echo $MajorCities;
-$sqladd = "INSERT INTO Companies (userid,CompanyName, Country, Address, MajorCities, Phone, RegistrationNumber, Industries, NumberEmployees) VALUES (?,?,?,?,?,?,?,?,?)";
+$sqladd = "INSERT INTO Companies (userid,CompanyName, Country, Address, MajorCities, Phone, RegistrationNumber, Industries, NumberEmployees,Stars) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
   if($stmt = mysqli_prepare($link, $sqladd)){
               // Bind variables to the prepared statement as parameters
-              mysqli_stmt_bind_param($stmt, "issssssss",$param_userid,$param_CompanyName, $param_Country,$param_Address,$param_MajorCities,$param_Phone,$param_RegistrationNumber,$param_Industries,$param_NumberEmployees);
+              mysqli_stmt_bind_param($stmt, "issssssssi",$param_userid,$param_CompanyName, $param_Country,$param_Address,$param_MajorCities,$param_Phone,$param_RegistrationNumber,$param_Industries,$param_NumberEmployees,$param_Stars);
 
               // Set parameters
               $param_userid = $userid;
+              $param_Stars = $Stars;
               $param_CompanyName = $CompanyName;
               $param_Country = $Country;
               $param_Address = $Address;

@@ -2,6 +2,14 @@
 <?php
 
 include ("sqlconnect.php");
+session_start();
+if($_SESSION["emailerr"] != ""){}
+else
+{$_SESSION["emailerr"] = "";}
+if($_SESSION["passerr"] != ""){}
+else
+{$_SESSION["passerr"] = "";}
+
 
 $sqltable =  "CREATE TABLE Users (
     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -29,7 +37,13 @@ $link->close();
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="stylesheet" type="text/css" href="css/signup.css">
 
+<style>
+.error{
+  font-size: 14px;
+  color: #6ab446;
+}
 
+</style>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -56,13 +70,14 @@ $link->close();
       <label for="lname"><b>Last Name</b></label>
       <input type="text"  name="lastname" required>
 
-      <label for="email"><b>Email</b></label>
+      <label for="email"><b>Email </b> <b class = "error"><?php  echo $_SESSION["emailerr"];?></b></label>
       <input type="text"  name="email" required>
+
 
       <label for="psw"><b>Password</b></label>
       <input type="password"  name="password" required>
 
-      <label for="psw-repeat"><b>Confirm Password</b></label>
+      <label for="psw-repeat"><b>Confirm Password </b><b class = "error"><?php  echo $_SESSION["passerr"];?></b></label>
       <input type="password"  name="confirmpassword" required>
 
       <button type="submit" class="registerbtn">Register</button>

@@ -14,7 +14,7 @@
 <div class="form-group row">
   <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
   <div class="col-sm-10">
-    <input type="text"  class="form-control" id="lastname" value="<?php echo $_SESSION["Email"];?>" disabled>
+    <input type="text"  class="form-control" id="email" value="<?php echo $_SESSION["Email"];?>" disabled>
   </div>
 </div>
 

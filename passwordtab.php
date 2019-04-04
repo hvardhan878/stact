@@ -1,4 +1,4 @@
-<form>
+<form action = "actionresetpassword.php" method = "post">
 <div class="form-group row">
   <label for="staticfirstname" class="col-sm-2 col-form-label">Current Password</label>
   <div class="col-sm-10">
@@ -17,6 +17,7 @@
     <input type="password"  class="form-control" id="confirmnewpassword" name = "confirmnewpassword">
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-sm-10">
 

@@ -15,8 +15,8 @@
 <?php include("dashnavbar.php"); ?>
 
 <div style = "margin:20px;">
-<p style = "font-size:25px;margin-bottom:0px;"> Notifications</p>
-<p style = "font-size:16px;margin-top:2px;color:grey">You will be notified here whenever there is any update</p>
+<p style = "font-size:25px;margin-bottom:0px;">Employee Profile</p>
+
 <hr>
 </div>
 

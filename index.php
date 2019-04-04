@@ -5,7 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
 
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+
+
+
+}
+</style>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -39,7 +84,7 @@
   </div>
   <div class="description">
     <h1>Welcome to Stact!</h1>
-    <p>Your Employees are an asset and we at Stact provide an exciting ecosystem for you to utilize them to the fullest. Stact provides you a platform to make money out of your idle staff. Sign up now to maximum your profits!</p>
+    <p>Your Employees are an asset and we at Stact provide an exciting ecosystem for you to utilize them to the fullest. Stact provides you an AI powered platform to make money out of your idle staff. Sign up now to maximum your profits!</p>
     <button class="btn btn-outline-secondary btn-lg" style = "width:50%; margin:8px;" onclick="signup()">Sign Up!</button>
     <button class="btn btn-outline-secondary btn-lg" style = "width:50%; margin:8px;" onclick="login()">Login</button>
   </div>
@@ -64,9 +109,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-12">
-      <h6 class="text-uppercase font-weight-bold">Additional Information</h6>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
+      <h6 class="text-uppercase font-weight-bold">Follow Us</h6>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-linkedin"></a>
+      <a href="#" class="fa fa-youtube"></a>
+      <a href="#" class="fa fa-instagram"></a>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
       <h6 class="text-uppercase font-weight-bold">Contact</h6>
