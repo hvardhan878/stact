@@ -40,6 +40,7 @@ include("sqlconnect.php");
 
 $sql = mysqli_query($link,"SELECT * FROM Employee where id = '$employeeid'");
 $row = mysqli_fetch_array($sql);
+$link = "selectemployee.php?employeeid=".$employeeid;
 
 
 ?>
@@ -47,7 +48,7 @@ $row = mysqli_fetch_array($sql);
 <div style = "margin:30px;margin-bottom:40px;">
 <div>
 <p style = "font-size:25px;margin-bottom:0px;margin-right:20px;float:left">Employee Profile</p>
-<button type="button" id = "save" class="btn btn-primary btnaddemp">Send Request for this employee</button>
+<button type="button" id = "save" onclick="location.href='<?php echo $link;?>'" class="btn btn-primary btnaddemp">Select this professional for further communication</button>
 </div>
 
 <hr>
