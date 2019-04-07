@@ -70,9 +70,10 @@ td, th {
 
 <?php include("dashnavbar.php");
 
-    if(isset($_GET["requestid"]))
+    if(isset($_POST["requestid"]))
     {
-      $requestid = $_GET["requestid"];
+      $requestid = $_POST["requestid"];
+
     }
 
 

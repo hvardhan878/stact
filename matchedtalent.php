@@ -50,7 +50,7 @@ include("sqlconnect.php");
       $companyname = $row["CompanyName"];
 
       $i = 1;
-      $getrequests = mysqli_query($link,"SELECT id,FirstName,LastName,JobTitle,Industries,Skills,Country,Cities,Status FROM Employee WHERE companyid = '$companyid'");
+      $getrequests = mysqli_query($link,"SELECT id,FirstName,LastName,JobTitle,Industries,Skills,Country,Cities,Status FROM Employee");
       while($req = mysqli_fetch_array($getrequests)){
 
        $requestedid = $req["id"];

@@ -15,7 +15,9 @@ if($new_password != $confirmnewpassword){
   $pass_err = "Passwords don't match";
   $_SESSION["passerr"] = $pass_err;
   //echo $pass_err;
-  header("location:profile.php");
+  echo '<script> alert("Passwords don\'t match");
+    window.location.href="profile.php";
+  </script>';
 
 
 }

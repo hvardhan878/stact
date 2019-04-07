@@ -12,6 +12,8 @@ else
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="stylesheet" type="text/css" href="css/signup.css">
+
+
 <style>
 .error{
   font-size: 14px;
@@ -19,10 +21,19 @@ else
 }
 
 </style>
+<link rel="stylesheet" type="text/css" href="css/loader.css">
 </head>
 <body>
+  <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+
+  </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="loader.js"></script>
 <script src="main.js"></script>
 <div class="split left">
   <div>

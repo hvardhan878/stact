@@ -138,8 +138,10 @@ $target_path = "assets/files/resume/".$filename;
                   // Attempt to execute the prepared statement
                   if(mysqli_stmt_execute($stmt)){
 
-                      echo '<script> alert("Successfully added");</script>';
-                      header("Location: addemployee.php");
+                      echo '<script> alert("Successfully added");
+                        window.location.href="addemployee.php";
+                      </script>';
+
 
                   } else{
                       echo $stmt->error;

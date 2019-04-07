@@ -15,7 +15,7 @@ $sqltable =  "CREATE TABLE Users (
     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(100) NOT NULL,
     LastName VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
     Password VARCHAR(255) NOT NULL,
     companyid INT(10) UNSIGNED,
     CompanyRegister VARCHAR(10) NOT NULL
@@ -44,10 +44,19 @@ $link->close();
 }
 
 </style>
+<link rel="stylesheet" type="text/css" href="css/loader.css">
 </head>
 <body>
+  <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+
+  </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src = "loader.js"></script>
 <script src="main.js"></script>
 <div class="split left">
   <div>

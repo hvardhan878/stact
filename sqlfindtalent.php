@@ -92,8 +92,10 @@
                 // Attempt to execute the prepared statement
                 if(mysqli_stmt_execute($stmt)){
 
-                    echo '<script> alert("Successfully added");</script>';
-                    header("Location: addrequest.php");
+                    echo '<script> alert("Successfully added");
+                      window.location.href="addrequest.php";
+                    </script>';
+
 
                 } else{
                     echo $stmt->error;

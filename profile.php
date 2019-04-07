@@ -63,20 +63,7 @@
 <script src="main.js"></script>
 <?php include("dashnavbar.php");
 
-if($_SESSION["passerr"] != ""){
-  echo '
-  <script type="text/javascript">
-
-  function onLoadAlert() {
-      alert("'.$_SESSION["passerr"].'");
-  }
-
-  $(document).ready(onLoadAlert);
-  </script>
-
-  ';
-
-}
+if($_SESSION["passerr"] != ""){}
 else
 {$_SESSION["passerr"] = "";}
 
