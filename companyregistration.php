@@ -30,12 +30,18 @@ color:#000;
 <script type="text/javascript" src="bootstrap-multiselect.js"></script>
 <?php
 session_start();
+// Check if the user is logged in, if not then redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
 if($_SESSION["CompanyRegister"] == "true"){
     header("location: dashboard.php");
     exit;
 }
 
 include("sqlconnect.php");
+
 
 $createcomp =  "CREATE TABLE Companies(
     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -48,7 +54,7 @@ $createcomp =  "CREATE TABLE Companies(
     RegistrationNumber VARCHAR(80) NOT NULL,
     Industries LONGTEXT NOT NULL,
     NumberEmployees VARCHAR(10) NOT NULL,
-    Stars INT UNISIGNED
+    Stars INT UNSIGNED
   )";
 $link->query($createcomp);
 

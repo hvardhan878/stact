@@ -43,7 +43,7 @@ if (isset($_POST['industries'])) {
 }
 $NumberEmployees = isset($_POST["employees"]) ? $_POST["employees"] : '';
 //echo $MajorCities;
-$sqladd = "INSERT INTO Companies (userid,CompanyName, Country, Address, MajorCities, Phone, RegistrationNumber, Industries, NumberEmployees,Stars) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+$sqladd = "INSERT INTO Companies (userid,CompanyName, Country, Address, MajorCities, Phone, RegistrationNumber, Industries, NumberEmployees,Stars) VALUES (?,?,?,?,?,?,?,?,?,?)";
   if($stmt = mysqli_prepare($link, $sqladd)){
               // Bind variables to the prepared statement as parameters
               mysqli_stmt_bind_param($stmt, "issssssssi",$param_userid,$param_CompanyName, $param_Country,$param_Address,$param_MajorCities,$param_Phone,$param_RegistrationNumber,$param_Industries,$param_NumberEmployees,$param_Stars);

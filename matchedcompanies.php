@@ -61,7 +61,7 @@ td, th {
 
 </style>
 
-</style>
+
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -69,6 +69,7 @@ td, th {
 <script src="main.js"></script>
 
 <?php include("dashnavbar.php");
+include("sqlconnect.php");
 
     if(isset($_POST["requestid"]))
     {
@@ -87,10 +88,57 @@ td, th {
 </div>
 
 <!--table-->
-<form method = "post">
+<form method = "post" action="actionemployeeaccess.php">
 
 <table>
   <tr>
+    <div class="row">
+
+
+  <?php
+
+
+  $i = 0;
+  $getcomp = mysqli_query($link,"SELECT * FROM Companies");
+  while($req = mysqli_fetch_array($getcomp)){
+
+     if($i%3==0&&$i>0){
+     echo '</div>';
+     echo '</tr>';
+     echo '<tr>';
+     echo '<div class = "row">';
+
+     }
+     echo '<div class="column">';
+     echo '<div class="card">';
+     echo '<h3>';
+     echo $req["CompanyName"];
+     echo '</h3>';
+     echo '<p style = "font-size:16px;color:grey;">';
+     echo $req["Country"];
+     echo '</p>';
+     echo '<p class="industries">Industries</p>';
+     echo '<p class = "industries">';
+     echo $req["Industries"];
+     echo '</p>';
+     echo '<label class="form-check-label" style="margin-top:10px;margin-left:20px;">';
+     echo ' <input type="checkbox" name = "checkboxPort[]" class="form-check-input" value='.$req["id"].'>';
+     echo 'Select';
+     echo '</label>';
+     echo '</div>';
+    echo '</div>';
+
+
+
+   $i++;
+  }
+
+   ?>
+
+
+
+
+<!--  <tr>
     <div class="row">
       <div class="column">
 
@@ -102,7 +150,7 @@ td, th {
            <p class="industries">Industries</p>
            <p class = "industries">Banking, Technology, Insurance</p>
            <label class="form-check-label" style="margin-top:10px;margin-left:20px;">
-           <input type="checkbox" class="form-check-input" value="">Select
+           <input type="checkbox" name = '' class="form-check-input" value="selected">Select
            </label>
         </div>
 
@@ -131,7 +179,7 @@ td, th {
         </div>
       </div>
     </div>
-  </tr>
+  </tr>-->
 
 </table>
 
@@ -149,6 +197,7 @@ td, th {
    window.location.href = "findtalent.php";
 
   }
+
   </script>
 
 </body>

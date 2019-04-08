@@ -1,4 +1,10 @@
-<?php session_start();?>
+<?php session_start();
+// Check if the user is logged in, if not then redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <nav class="navbar navbar-expand-md">
   <a class="navbar-brand" href="#"><img src="assets/images/stactlogo.png" title="" style="height: 4rem;"></a>
   <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">

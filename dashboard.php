@@ -48,7 +48,7 @@ td, th {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: left;
-  width:98%;
+  width:100%;
   height: 80px;
   margin:auto;
   margin-bottom: 10px;
@@ -58,7 +58,7 @@ td, th {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: left;
-  width:96%;
+  width:99%;
 
   margin:auto;
   margin-bottom: 10px;
@@ -104,6 +104,7 @@ include("sqlconnect.php");
 $createnotification =  "CREATE TABLE Notifications(
     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     companyid INT(10) UNSIGNED NOT NULL,
+    reqcompanyid INT(10) UNSIGNED NOT NULL,
     type VARCHAR(50) NOT NULL,
     notification LONGTEXT NOT NULL,
     reg_date TIMESTAMP
@@ -141,8 +142,16 @@ $createnotification =  "CREATE TABLE Notifications(
 
        echo '<tr>';
        echo '<div class="row">';
+       if($req["type"]=="employeerequest"){
+           $link = "approveaccess.php?requestid=".$req["id"];
+          echo '<div class="card" onclick = "location.href=';?><?php echo "'";echo $link;echo "'";?><?php echo'">';
+       }
+       else if($req["type"]=="approved"){
+           $link = "matchedtalent.php";
+          echo '<div class="card" onclick = "location.href=';?><?php echo "'";echo $link;echo "'";?><?php echo'">';
+       }
 
-       echo '<div class="card">';
+
 
 
        echo '<p>';
