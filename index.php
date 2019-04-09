@@ -110,7 +110,7 @@
   </div>
   <div class="description">
     <h1>Welcome to Stact!</h1>
-    <p style>Your Employees are an asset and we at Stact provide an exciting ecosystem for you to utilize them to the fullest. Stact provides you an AI powered platform to make money out of your idle staff. Sign up now to maximum your profits!</p>
+    <p style>Employees are an asset and we at Stact provide an exciting ecosystem for you to utilize them to the fullest. Stact provides you an AI powered platform to make money out of your idle staff by lending them to businesses in need. Sign up now to maximize your profits!</p>
     <button class="btn btn-outline-secondary btn-lg" style = "width:50%; margin:8px;" onclick="signup()">Sign Up!</button>
     <button class="btn btn-outline-secondary btn-lg" style = "width:50%; margin:8px;" onclick="login()">Login</button>
   </div>
