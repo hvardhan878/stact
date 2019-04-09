@@ -122,7 +122,7 @@ $createnotification =  "CREATE TABLE Notifications(
  ?>
 
 <div style = "margin:20px;">
-<p style = "font-size:25px;margin-bottom:0px;"> Notifications</p>
+<p style = "font-size:25px;margin-bottom:0px;">Notifications</p>
 <p style = "font-size:16px;margin-top:2px;color:grey">You will be notified here whenever there is any update</p>
 <hr>
 <table>
@@ -134,7 +134,7 @@ $createnotification =  "CREATE TABLE Notifications(
       $companyname = $row["CompanyName"];
 
       $i = 1;
-      $getrequests = mysqli_query($link,"SELECT * FROM Notifications WHERE companyid = '$companyid'");
+      $getrequests = mysqli_query($link,"SELECT * FROM Notifications WHERE companyid = '$companyid' ORDER BY id DESC");
       while($req = mysqli_fetch_array($getrequests)){
 
 
