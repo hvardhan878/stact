@@ -61,7 +61,7 @@ td, th {
 
 </style>
 
-
+</style>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -69,7 +69,6 @@ td, th {
 <script src="main.js"></script>
 
 <?php include("dashnavbar.php");
-include("sqlconnect.php");
 
     if(isset($_POST["requestid"]))
     {
@@ -88,98 +87,117 @@ include("sqlconnect.php");
 </div>
 
 <!--table-->
-<form method = "post" action="actionemployeeaccess.php">
+<form method = "post">
 
 <table>
   <tr>
     <div class="row">
+      
+      <?php
+      include("sqlconnect.php");
+      $userid = $_SESSION["userid"];  
+
+      $getcompid = mysqli_query($link, "SELECT id FROM Companies WHERE userid = '$userid'");
+      $row = mysqli_fetch_array($getcompid);
+      $companyid = $row["id"];
+ 
+      $sql1 = "SELECT * FROM request WHERE `companyid` = '$companyid'";
+      $result = mysqli_query($link, $sql1);
+      $temp_arr = array();
+      if (mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_assoc($result)) {
+            $skills = $row["Skills"];
+            $skills_required_by_company = explode (",", $skills); 
+            foreach($skills_required_by_company as $array_ele){
+              array_push($temp_arr,trim($array_ele));
+            }
+          }
+      }else{
+            echo "0 results";
+      }
+      $unique_skills_required_by_company =array_unique($temp_arr);
+      //print_r($unique_skills_required_by_company);
+      
+      $sql2 = "SELECT * FROM employee";
+      $result2 = mysqli_query($link, $sql2);
+      //$temp_arr = array();
+      $flag1=0;
+      if (mysqli_num_rows($result2) > 0) {
+          while($row2 = mysqli_fetch_assoc($result2)) {
+            
+            $companyid = $row2['companyid'];
+            $skills2 = $row2['Skills'];
+            $employee_skills = explode(',',$skills2);
+            
+            foreach($temp_arr as $array_ele2){
+              foreach($employee_skills as $skill_req){
+                if(trim($skill_req) == trim($array_ele2)){
+                  $flag1=1;
+                  break;
+                }
+              }
+
+            $sql3 = "SELECT * FROM companies WHERE `id` = '$companyid'";
+            $result3 = mysqli_query($link, $sql3);
+            $array_com = array();
+            if(mysqli_num_rows($result3)>0) {
+              while($row3 = mysqli_fetch_assoc($result3)) {
+                $company_name = $row3['CompanyName']; 
+                array_push($array_com,trim($company_name));
+              }  
+            }
+           $array_com_final = array_unique($array_com);
+           
+}
+
+}
+           foreach($array_com_final as $com_name){
+              
+
+              $sql4 = "SELECT * FROM companies WHERE `CompanyName` = '$com_name'";
+              $result4 = mysqli_query($link, $sql4);
+              while($row4 = mysqli_fetch_assoc($result4)){
+                ?>
 
 
-  <?php
-
-
-  $i = 0;
-  $getcomp = mysqli_query($link,"SELECT * FROM Companies");
-  while($req = mysqli_fetch_array($getcomp)){
-
-     if($i%3==0&&$i>0){
-     echo '</div>';
-     echo '</tr>';
-     echo '<tr>';
-     echo '<div class = "row">';
-
-     }
-     echo '<div class="column">';
-     echo '<div class="card">';
-     echo '<h3>';
-     echo $req["CompanyName"];
-     echo '</h3>';
-     echo '<p style = "font-size:16px;color:grey;">';
-     echo $req["Country"];
-     echo '</p>';
-     echo '<p class="industries">Industries</p>';
-     echo '<p class = "industries">';
-     echo $req["Industries"];
-     echo '</p>';
-     echo '<label class="form-check-label" style="margin-top:10px;margin-left:20px;">';
-     echo ' <input type="checkbox" name = "checkboxPort[]" class="form-check-input" value='.$req["id"].'>';
-     echo 'Select';
-     echo '</label>';
-     echo '</div>';
-    echo '</div>';
-
-
-
-   $i++;
-  }
-
-   ?>
-
-
-
-
-<!--  <tr>
-    <div class="row">
-      <div class="column">
-
+<div class="column">
         <div class="card">
-          <h3>Amazon</h3>
-
-         <p style = "font-size:16px;color:grey;">Location</p>
-
+          <h3><?php echo $row4['CompanyName']?></h3>
+           <p style = "font-size:16px;color:grey;"><?php echo $row4['Address'], " , ".$row4["Country"]?></p>
            <p class="industries">Industries</p>
-           <p class = "industries">Banking, Technology, Insurance</p>
-           <label class="form-check-label" style="margin-top:10px;margin-left:20px;">
-           <input type="checkbox" name = '' class="form-check-input" value="selected">Select
-           </label>
-        </div>
-
-
-      </div>
-      <div class="column">
-        <div class="card">
-           <h3>Facebook</h3>
-           <p style = "font-size:16px;color:grey">Location</p>
-           <p class = "industries">Industries</p>
-           <p class = "industries">Banking, Technology, Insurance</p>
+           <p class = "industries"><?php echo $row4['Industries']?></p>
            <label class="form-check-label" style="margin-top:10px;margin-left:20px;">
            <input type="checkbox" class="form-check-input" value="">Select
            </label>
         </div>
       </div>
-      <div class="column">
-        <div class="card">
-           <h3>Google</h3>
-           <p style = "font-size:16px;color:grey">Location</p>
-           <p class = "industries">Industries</p>
-           <p class = "industries">Banking, Technology, Insurance</p>
-           <label class="form-check-label" style="margin-top:10px;margin-left:20px;">
-           <input type="checkbox" class="form-check-input" value="">Select
-           </label>
-        </div>
-      </div>
+
+
+
+<?php
+
+              }
+           }
+
+            
+
+
+
+      }
+    
+
+
+
+      ?>
+
+      
+
+      
+   
+
+
     </div>
-  </tr>-->
+  </tr>
 
 </table>
 
@@ -197,7 +215,6 @@ include("sqlconnect.php");
    window.location.href = "findtalent.php";
 
   }
-
   </script>
 
 </body>
